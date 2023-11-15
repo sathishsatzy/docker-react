@@ -8,3 +8,12 @@ before_install:
 script:
   - docker run -e CI=true satzy/docker-react npm run test
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-handson"
+  env: "Docker-handson-env"
+  bucket_name: "elasticbeanstalk-us-east-1-003773012327"
+  bucket_path: "docker-handson"
+  on:
+    branch: master
